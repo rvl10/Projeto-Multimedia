@@ -1,0 +1,24 @@
+O projeto de Multimédia tem os seguintes requisitos: 
+- Aplicação desenvolvida em PHP 
+- HTML5 e CSS, com Bootstrap
+- Base de dados MySQL
+- Autenticação de utilizadores
+- Perfis de utilizadores (mínimo cliente e administrador)
+- Ser dinâmico e responsivo
+- Carrinho de compras
+- Check out (realização da compra)
+- A informação deve ser gerada dinamicamente a partir de uma base de dados MySQL (não podem existir páginas estáticas.  As categorias, produtos, descrição, imagens tem que ser obtidos da base de dados)
+- Base de dados com um mínimo de 6 tabelas
+- Deve ter um backoffice para gestão da base de dados (CRUD - Inserir, alterar e remover) (mínimo CRUD de 6 tabelas)
+
+Para a submissão do projeto incluir: 
+- Projeto completo (compactar pasta) em formato .ZIP
+- Modelo ER da base de dados (Modelo do Workbench)
+- Dump da base de dados em um ficheiro único .sql (exportar base de dados) 
+- Relatório sintético do projeto (máximo 10 páginas) com as seguintes seções: 
+     * Resumo 
+     * Objetivos 
+     * Trabalho Desenvolvido 
+     * Resultados e Conclusões 
+
+Deverá ser dado acesso ao repositório no GitHub a: palvesipb
