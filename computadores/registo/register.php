@@ -105,7 +105,7 @@ else {
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                header("location: login.php");
+                header("location: ../computador.php");
             } else {
                 echo "Ocorreu um erro. Por favor tente mais tarde.";
                 echo mysqli_error($link);//
