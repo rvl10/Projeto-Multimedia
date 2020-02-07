@@ -3,7 +3,7 @@
 //Dados do banco de dados
 define("DB_HOST", "localhost");
 define("DB_NAME", "categorias");
-define("DB_USER", "root");
+define("DB_USER", "projeto_multimedia");
 define("DB_PASS", "");
 
 //Conexao com Banco de Dados
