@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "categorias";
+$dbname = "projeto_multimedia";
 // cria a ligação
 $conn = new mysqli($servername, $username, $password, $dbname);
 // testa a ligação
