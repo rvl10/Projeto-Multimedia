@@ -123,7 +123,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
                                         <li><a href="categories.html">Smartwatches</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contacto</a></li>
+                                <li><a href="contact.php">Contacto</a></li>
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">

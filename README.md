@@ -12,7 +12,7 @@ O projeto de Multimédia tem os seguintes requisitos:
 - Base de dados MySQL - OK
 - Autenticação de utilizadores 
 - Perfis de utilizadores (mínimo cliente e administrador) - OK 
-- Ser dinâmico e responsivo
+- Ser dinâmico e responsivo - OK
 - Carrinho de compras
 - Check out (realização da compra)
 - A informação deve ser gerada dinamicamente a partir de uma base de dados MySQL (não podem existir páginas estáticas.  As categorias, produtos, descrição, imagens tem que ser obtidos da base de dados)
