@@ -3,8 +3,8 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$utilizador = $password = $confirm_password = $nome = $email = $telefone ="";
-$utilizador_err = $password_err = $confirm_password_err = $nome_err = $email_err = $telefone_err = "";
+$utilizador = $password = $confirm_password = $nome = $email = $telefone = $nif = $data_nascimento = $morada = $localidade = $codigo_postal = $Tipo_Utilizador_id ="";
+$utilizador_err = $password_err = $confirm_password_err = $nome_err = $email_err = $telefone_err = $nif_err = $data_nascimento_err = $morada_err = $localidade_err = $codigo_postal_err = $Tipo_Utilizador_id_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     else {
         // Prepare a select statement
-        $sql = "SELECT id FROM utilizadores WHERE utilizador = ?";
+        $sql = "SELECT id FROM utilizador WHERE nome = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -85,15 +85,57 @@ if(empty(trim($_POST["telefone"]))){
 else {
     $telefone = trim($_POST["telefone"]);
 }
+// Validate nif
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
+    // Validate data_nascimento
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
+    // Validate morada
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
+    // Validate localidade
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
+    // Validate codigo_postal
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
+    // Validate tipo utilizador
+    if(empty(trim($_POST["nome"]))){
+        $nome_err = "Introduza o seu nome.";
+    }
+    else{
+        $nome = trim($_POST["nome"]);
+    }
     // Check input errors before inserting in database
     if(empty($utilizador_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO utilizadores (utilizador, password, nome, email, telefone) VALUES (?, ?,?,?,?)";
+        $sql = "INSERT INTO utilizador (utilizador, password, nome, email, telefone, nif, data_nascimento, morada, localidade, codigo_postal, Tipo_Utilizador_id) VALUES ( ".$_POST['nome_login'].",".$_POST['palavra_passe'].",".$_POST['primeiro_nome'].",".$_POST['apelido'].",".$_POST['endereco'].",".$_POST['localidade'].",".$_POST['codigo_postal'].",".$_POST['telefone'].",".$_POST['email'].",  3) ";
 
         if($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssss", $param_utilizador, $param_password, $param_nome, $param_email, $param_telefone);
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $param_utilizador, $param_password, $param_nome, $param_email, $param_telefone,$param_nif,$param_data_nascimento,$param_morada,$param_localidade,$param_codigo_postal,$param_Tipo_Utilizador_id);
 
             // Set parameters
             $param_utilizador = $utilizador;
@@ -101,11 +143,18 @@ else {
             $param_nome = $nome;
             $param_email = $email;
             $param_telefone = $telefone;
+            $param_nif = $nif;
+            $param_data_nascimento = $data_nascimento;
+            $param_morada = $morada;
+            $param_localidade = $localidade;
+            $param_codigo_postal = $codigo_postal;
+            $param_Tipo_Utilizador_id = $Tipo_Utilizador_id;
+            
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                header("location: login.php");
+                header("location: ../computador.php");
             } else {
                 echo "Ocorreu um erro. Por favor tente mais tarde.";
                 echo mysqli_error($link);//
@@ -168,6 +217,31 @@ else {
             <label>Telefone</label>
             <input type="text" name="telefone" class="form-control" value="<?php echo $telefone; ?>">
             <span class="help-block"><?php echo $telefone_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($nif_err)) ? 'has-error' : ''; ?>">
+            <label>Nif</label>
+            <input type="text" name="telefone" class="form-control" value="<?php echo $nif; ?>">
+            <span class="help-block"><?php echo $nif_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($data_nascimento_err)) ? 'has-error' : ''; ?>">
+                <label>Data Nascimento</label>
+            <input type="text" name="telefone" class="form-control" value="<?php echo $data_nascimento; ?>">
+            <span class="help-block"><?php echo $data_nascimento_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($morada_err)) ? 'has-error' : ''; ?>">
+            <label>Morada</label>
+            <input type="text" name="telefone" class="form-control" value="<?php echo $morada; ?>">
+            <span class="help-block"><?php echo $morada_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($localidade_err)) ? 'has-error' : ''; ?>">
+            <label>Localidade</label>
+            <input type="text" name="telefone" class="form-control" value="<?php echo $localidade; ?>">
+            <span class="help-block"><?php echo $localidade_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($codigo_postal_err)) ? 'has-error' : ''; ?>">
+            <label>Codigo_Postal</label>
+            <input type="text" name="telefone" class="form-control" value="<?php echo $codigo_postal; ?>">
+            <span class="help-block"><?php echo $codigo_postal_err; ?></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submeter">
