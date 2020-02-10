@@ -9,7 +9,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 // Include config file
-require_once "config.php";
+require_once "ligacao_bd.php";
 
 // Define variables and initialize with empty values
 $utilizador = $password = "";
@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="login.css" />
+    <link rel="stylesheet" type="text/css" href="login.css"/>
 </head>
 <header class="header">
     <div class="header_container">
@@ -102,7 +102,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo"><a href="/exercicio15/index.php"><img height="40%" src="imagens/logo.jpg" width="20%" alt=""></a></div>
+                        <div class="logo"><a href="/exercicio15/index.php"><img height="40%" src="images/logo.jpg"
+                                                                                width="20%" alt=""></a></div>
                     </div>
                 </div>
             </div>
@@ -129,17 +130,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </form>
 </section>
-<section id="vantagens">  <h2> Vantagens Bit.Estig</h2><p></p>
-    <div><img src="imagens/carro1.jpg" alt="" width="width" height="height"> Produtos com entregas gratuitas. </div><p></p>
-    <div><img src="imagens/cartao1.jpg" alt="" width="width" height="height"> Compre online e levante em loja. </div><p></p>
-    <div><img src="imagens/euro.jpg" alt="" width="width" height="height"> Preço mínimo garantido. </div><p></p>
-    <section id="registo"><h2>Ainda não tem conta</h2><p></p>Se ainda não tem conta crie aqui e comece a tirar partido das melhores vantagens Bit.Estig.
-        <a href="register.php" class="btn btn-primary">Criar conta</a><p></p>
+<section id="vantagens"><h2> Vantagens Bit.Estig</h2>
+    <p></p>
+    <div><img src="images/carro1.jpg" alt="" width="width" height="height"> Produtos com entregas gratuitas.</div>
+    <p></p>
+    <div><img src="images/cartao1.jpg" alt="" width="width" height="height"> Compre online e levante em loja.</div>
+    <p></p>
+    <div><img src="images/euro.jpg" alt="" width="width" height="height"> Preço mínimo garantido.</div>
+    <p></p>
+    <section id="registo"><h2>Ainda não tem conta</h2>
+        <p></p>Se ainda não tem conta crie aqui e comece a tirar partido das melhores vantagens Bit.Estig.
+        <a href="register.php" class="btn btn-primary">Criar conta</a>
+        <p></p>
     </section>
 </section>
 <footer>
-    <img src="imagens/logo2.jpg">
+    <img src="images/logo2.jpg">
 </footer>
-<img src="imagens/pagamentos1.png" align="right" >
+<img src="images/pagamentos1.png" align="right">
 </body>
 </html>

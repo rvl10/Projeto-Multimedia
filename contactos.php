@@ -1,7 +1,7 @@
 <?php
 
 // Include config file
-require_once "config.php";
+require_once "ligacao_bd.php";
 
 // Define variables and initialize with empty values
 $nome = $assunto = $mensagem = $email =  "";

@@ -1,20 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projeto_multimedia";
-// cria a ligação
-$conn = new mysqli($servername, $username, $password, $dbname);
-// testa a ligação
-if ($conn->connect_error) {
-    die("Erro de ligação à base de dados:" . $conn->connect_error);
-}
-$sql = "select id, categoria  from categoria";
+require_once "ligacao_bd.php";
+
+$sql = "select id, nome  from categoria";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
- // mostra os resultados
- print "<table class='table table-striped'>
+    // mostra os resultados
+    print "<table class='table table-striped'>
 <thead>
 <tr>
 <th scope='col'>id</th>
@@ -25,8 +17,8 @@ if ($result->num_rows > 0) {
 
  while($row = $result->fetch_assoc()) {
  print
-"<tr><td>".$row['id']."</td>
-<td>".$row['categoria']."</td>
+     "<tr><td>" . $row['id'] . "</td>
+<td>" . $row['nome'] . "</td>
 <td> <align center><input class=\"btn btn-danger\" type='submit' value='Eliminiar' </td>
  </tr>";
 

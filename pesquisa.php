@@ -3,7 +3,7 @@
 // ------------ pesquisar artigo ---------------
 if (isset($_REQUEST['pesquisar'])) {
     // ligacao a base de dados
-    include('config.php');
+    include('ligacao_bd.php');
 
     // pesquisar termo inserido
     $termo_pesquisa = '%' . $_POST['termo_pesquisa'] . '%';

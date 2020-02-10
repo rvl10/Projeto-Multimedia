@@ -16,18 +16,18 @@
 	<?php
 	// ------------ pesquisar artigo ---------------
 	if(isset($_REQUEST['pesquisar'])) {
-	// ligacao a base de dados
-	include('config.php');
-	
-	// pesquisar termo inserido
-	$termo_pesquisa = '%'.$_POST['termo_pesquisa'].'%';
-	$sql_artigo = "SELECT * FROM produto WHERE nome LIKE '$termo_pesquisa'";
-	$consulta = mysqli_query($sql_artigo);
-	$resultado = mysqli_num_rows($consulta);
-	
-	if ($resultado != 0) {
-	echo "<table width='800 px' border='1' align='center'>";
-	echo "<th>Artigos encontrados na pesquisa com o termo ".$_POST['termo_pesquisa']."</th>";
+        // ligacao a base de dados
+        include('ligacao_bd.php');
+
+        // pesquisar termo inserido
+        $termo_pesquisa = '%' . $_POST['termo_pesquisa'] . '%';
+        $sql_artigo = "SELECT * FROM produto WHERE nome LIKE '$termo_pesquisa'";
+        $consulta = mysqli_query($sql_artigo);
+        $resultado = mysqli_num_rows($consulta);
+
+        if ($resultado != 0) {
+            echo "<table width='800 px' border='1' align='center'>";
+            echo "<th>Artigos encontrados na pesquisa com o termo " . $_POST['termo_pesquisa'] . "</th>";
 	// apresenta artigos disponiveis
 	while ($mostrar = mysqli_fetch_array($consulta)) {
 	echo "<table width='800 px' border='1' align='center'>";

@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "ligacao_bd.php";
 
 // Define variables and initialize with empty values
 $utilizador = $password = $confirm_password = $nome = $email = $telefone = $nif = $data_nascimento = $morada = $localidade = $codigo_postal = $Tipo_Utilizador_id ="";

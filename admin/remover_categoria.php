@@ -1,17 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projeto_multimedia";
-
-// cria a ligação
-$conn = new mysqli($servername, $username, $password, $dbname);
-// testa a ligação
-if ($conn->connect_error) {
-    die("Erro de ligação à base de dados:" . $conn->connect_error);
-
-}
-
+require_once "ligacao_bd.php";
 
 $categoria ="";
 $categoria_err ="";
