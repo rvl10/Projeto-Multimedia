@@ -123,7 +123,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
                                         <li><a href="categories.html">Smartwatches</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.php">Contacto</a></li>
+                                <li><a href="contact.html">Contacto</a></li>
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
@@ -227,7 +227,7 @@ if(isset($_SESSION["shopping_cart"])){
 <table class="table" style="color: black">
 <tbody>
 <td colspan="5" align="right">
-    <a href="registo/login.php" class="btn btn-primary">Prosseguir com a compra</a>
+    <a href="../registo/login.php" class="btn btn-primary">Prosseguir com a compra</a>
 </td>
 <tr>
 <td></td>
@@ -376,33 +376,9 @@ $total_price += ($product["price"]*$product["quantity"]);
     </div>
 </div>
 
-<!-- Footer -->
-
-<div class="footer_overlay"></div>
-<footer class="footer">
-    <div class="footer_background" ></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center" style="background-color: white">
-                    <div class="footer_logo" ><a href="#"><img height="40%" src="images/exe1.png" width="60%" alt=""></a></div>
-                    <div class="copyright ml-auto mr-auto"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-                    <div class="footer_social ml-lg-auto">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-</div>
+<?php
+include('footer.php');
+?>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>

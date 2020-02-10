@@ -333,14 +333,10 @@ section
 }
 .logo a
 {
-	font-size: 30px;
-	font-weight: 700;
+	font-size: 10px;
+	font-weight: 70;
 	color: #1b1b1b;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+
 }
 .header.scrolled .logo a
 {
@@ -348,7 +344,7 @@ section
 }
 .main_nav
 {
-	margin-left: 156px;
+	margin-left: 16px;
 }
 .main_nav > ul > li
 {
@@ -1123,7 +1119,7 @@ section
 {
 	font-size: 16px;
 	font-weight: 500;
-	color: #6c6a74;
+	color: #080808;
 	line-height: 0.75;
 	margin-top: 13px;
 }

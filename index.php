@@ -69,7 +69,7 @@ div class="super_container">
 
                                         <?php endforeach;?>
                                     </li>
-                                <li><a href="computadores/registo/login.php">Login/Registar</a></li>
+                                <li><a href="registo/login.php">Login/Registar</a></li>
 							</ul>
                             <!-- get das subcategorias -->
 

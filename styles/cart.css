@@ -40,7 +40,7 @@ body
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
-	color: #a5a5a5;
+	color: rgba(8, 8, 8, 0.97);
 }
 div
 {
@@ -61,7 +61,7 @@ p
 	font-size: 14px;
 	line-height: 2.14;
 	font-weight: 400;
-	color: #6c6a74;
+	color: #080808;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
@@ -363,7 +363,7 @@ section
 {
 	font-size: 16px;
 	font-weight: 600;
-	color: #767676;
+	color: #080808;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -978,7 +978,7 @@ section
 {
 	font-size: 14px;
 	font-weight: 500;
-	color: #6c6a74;
+	color: #080808;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1021,7 +1021,7 @@ section
 	transform: translateY(-50%);
 	font-size: 16px;
 	font-weight: 600;
-	color: #6c6a74;
+	color: #080808;
 }
 .product_quantity input
 {
