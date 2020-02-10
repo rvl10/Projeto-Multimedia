@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before updating the database
     if(empty($new_password_err) && empty($confirm_password_err)){
         // Prepare an update statement
-        $sql = "UPDATE users SET password = ? WHERE id = ?";
+        $sql = "UPDATE utilizador SET password = ? WHERE id = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -51,18 +51,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_id = $_SESSION["id"];
 
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if (mysqli_stmt_execute($stmt)) {
                 // Password updated successfully. Destroy the session, and redirect to login page
                 session_destroy();
                 header("location: login.php");
                 exit();
-            } else{
+            } else {
                 echo "Ocorreu um erro. Por favor tente mais tarde.";
             }
+            // Close statement
+            mysqli_stmt_close($stmt);
         }
 
-        // Close statement
-        mysqli_stmt_close($stmt);
+
     }
 
     // Close connection

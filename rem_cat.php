@@ -1,3 +1,4 @@
+<!--TODO: FIX -->
 <?php
 // liga��o base dados
 require('ligacao_bd.php');

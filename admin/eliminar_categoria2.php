@@ -1,12 +1,12 @@
 <?php
-require_once "ligacao_bd.php";
+require_once "../ligacao_bd.php";
 
 if (isset($_GET['id'])) {
     // escreva aqui a sua query de remoção
     $sql = "DELETE FROM categoria WHERE id =  " . $_GET['id'];
     // se a query de remoção for executada com sucesso
     // mensagem de ok
-    $resultado = $conn->query($sql);
+    $resultado = $link->query($sql);
     if ($resultado) // will return true if succefull else it will return false
     {
         echo "<p>Apagado com sucesso!</p>";
@@ -17,5 +17,5 @@ if (isset($_GET['id'])) {
 //        echo $resultado->error;
     }
 }
-$conn->close();
+$link->close();
 ?>

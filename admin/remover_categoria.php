@@ -1,15 +1,14 @@
 <?php
-require_once "ligacao_bd.php";
+require_once "../ligacao_bd.php";
 
-$categoria ="";
-$categoria_err ="";
+$categoria = "";
+$categoria_err = "";
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(empty(trim($_GET["id"]))){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_GET["id"]))) {
         $categoria_err = "remova uma categoria.";
-    }
-    else{
+    } else {
         $categoria = trim($_GET["id"]);
     }
     // Check input errors before inserting in database
@@ -42,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $sql = "select id, nome  from categoria";
 
-$result = $conn->query($sql);
+$result = $link->query($sql);
 if ($result->num_rows > 0) {
 
     // mostra os resultados
@@ -54,13 +53,11 @@ if ($result->num_rows > 0) {
 <th scope='col'>Categoria</th>";
 
 
-
-
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         print
-            "<tr><td>".$row['id']."</td>
-<td>".$row['nome']."</td>
-<td> <align center><a href='eliminar_categoria2.php?id=".$row['id']."' class=\"btn btn-danger btn-sm\" role='button'> Eliminar</a></td>
+            "<tr><td>" . $row['id'] . "</td>
+<td>" . $row['nome'] . "</td>
+<td> <align center><a href='eliminar_categoria2.php?id=" . $row['id'] . "' class=\"btn btn-danger btn-sm\" role='button'> Eliminar</a></td>
  </tr>";
 
     }
@@ -68,22 +65,20 @@ if ($result->num_rows > 0) {
 } else {
     echo "Sem resultados.";
 }
-$conn->close();
+$link->close();
 ?>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </tr>
 </tbody>
 </table>

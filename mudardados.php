@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before updating the database
     if(empty($email_err) && empty($telefone_err)){
         // Prepare an update statement
-        $sql = "UPDATE users SET email = ?, phone = ? WHERE id = ?";
+        $sql = "UPDATE utilizador SET email = ?, telefone = ? WHERE id = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters

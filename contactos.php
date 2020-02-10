@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <li><a href="product.html"></a></li>
                                             <li><a href="cart.html">Carrinho</a></li>
                                             <li><a href="checkout.html">Check out</a></li>
-                                            <li><a href="contact.html">Contactos</a></li>
+                                            <li><a href="contactos.php">Contactos</a></li>
                                         </ul>
                                     </li>
                                     <li class="hassubs">
@@ -128,14 +128,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </li>
                                     <li><a href="#">Accessorie</a></li>
                                     <li><a href="#">Ofertas</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contactos.php">Contact</a></li>
                                 </ul>
                             </nav>
                             <div class="header_extra ml-auto">
                                 <div class="shopping_cart">
                                     <a href="cart.html">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                             viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                             viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;"
+                                             xml:space="preserve">
 											<g>
                                                 <path d="M440.1,422.7l-28-315.3c-0.6-7-6.5-12.3-13.4-12.3h-57.6C340.3,42.5,297.3,0,244.5,0s-95.8,42.5-96.6,95.1H90.3
 													c-7,0-12.8,5.3-13.4,12.3l-28,315.3c0,0.4-0.1,0.8-0.1,1.2c0,35.9,32.9,65.1,73.4,65.1h244.6c40.5,0,73.4-29.2,73.4-65.1
@@ -227,15 +229,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li class="page_menu_item has-children menu_mm">
                         <a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
                         <ul class="page_menu_selection menu_mm">
-                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
+                                            class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
+                                            class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
+                                            class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
+                                            class="fa fa-angle-down"></i></a></li>
                         </ul>
                     </li>
-                    <li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
+                    <li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a>
+                    </li>
                     <li class="page_menu_item menu_mm"><a href="#">Offers<i class="fa fa-angle-down"></i></a></li>
-                    <li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
+                    <li class="page_menu_item menu_mm"><a href="contactos.php">Contact<i
+                                    class="fa fa-angle-down"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -294,64 +303,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         <!-- Name -->
                                         <label for="contact_name">Nome*</label>
-                                        <input type="text" name="nome"  class="form-control" value="<?php echo $nome; ?>">
+                                        <input type="text" name="nome" class="form-control"
+                                               value="<?php echo $nome; ?>">
                                         <span class="help-block"><?php echo $nome_err; ?></span>
                                     </div>
                                     <div class="col-xl-6 last_name_col">
 
                                         <!-- Assunto -->
                                         <label for="contact_name">Assunto*</label>
-                                        <input type="text" name="assunto" class="form-control" value="<?php echo $assunto; ?>">
+                                        <input type="text" name="assunto" class="form-control"
+                                               value="<?php echo $assunto; ?>">
                                         <span class="help-block"><?php echo $assunto_err; ?></span>
                                     </div>
-                                <div class="col-xl-6 last_name_col">
-                                    <!-- mensagem -->
-                                    <label for="contact_name">Mensagem*</label>
-                                    <input type="text" name="mensagem" class="form-control" value="<?php echo $mensagem; ?>">
-                                    <span class="help-block"><?php echo $mensagem_err; ?></span>
-                                </div class="col-xl-6 last_name_col">
+                                    <div class="col-xl-6 last_name_col">
+                                        <!-- mensagem -->
+                                        <label for="contact_name">Mensagem*</label>
+                                        <input type="text" name="mensagem" class="form-control"
+                                               value="<?php echo $mensagem; ?>">
+                                        <span class="help-block"><?php echo $mensagem_err; ?></span>
+                                    </div class="col-xl-6 last_name_col">
                                     <!-- email-->
-                                <div class="col-xl-6 last_name_col">
-                                    <label for="contact_name">Email*</label>
-                                    <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
-                                    <span class="help-block"><?php echo $email_err; ?></span>
-                                </div>
+                                    <div class="col-xl-6 last_name_col">
+                                        <label for="contact_name">Email*</label>
+                                        <input type="text" name="email" class="form-control"
+                                               value="<?php echo $email; ?>">
+                                        <span class="help-block"><?php echo $email_err; ?></span>
+                                    </div>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-primary" value="Submeter">
                                         <input type="reset" class="btn btn-default" value="Cancelar">
                                     </div>
-                                <button class="button contact_button"><span>Enviar Mensagem</span></button>
+                                    <button class="button contact_button"><span>Enviar Mensagem</span></button>
                             </form>
                         </div>
                     </div>
                 </div>
+                <?php
+                //TODO: enviar email
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "projeto_multimedia";
+                // cria a ligação
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // testa a ligação
+                if ($conn->connect_error) {
+                    die("Erro de ligação à base de dados:" . $conn->connect_error);
+                }
+                $sql = "select telefone, email  from infoempresa";
 
-                <!-- Contact Info - contato-->
-                <div class="col-lg-3 offset-xl-1 contact_col">
-                    <div class="contact_info">
-                        <div class="contact_info_section">
-                            <div class="contact_info_title">Dúvidas</div>
-                            <ul>
-                                <li>Telefone: <span>+351 937 550 018</span></li>
-                                <li>Email: <span>geralg@bitestig.pt</span></li>
-                            </ul>
-                        </div>
-                        <div class="contact_info_section">
-                            <div class="contact_info_title">Informação</div>
-                            <ul>
-                                <li>Telefone: <span>+351 937 550 0185</span></li>
-                                <li>Email: <span>geral@bitestig.pt</span></li>
-                            </ul>
-                        </div>
-                        <div class="contact_info_section">
-                            <div class="contact_info_title">Informação</div>
-                            <ul>
-                                <li>Telefone: <span>+351 937 550 018</span></li>
-                                <li>Email: <span>Geral@bitestig.pt</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+
+                        echo "		<!-- Contact Info - contato-->
+				<div class=\"col-lg-3 offset-xl-1 contact_col\">
+					<div class=\"contact_info\">
+						<div class=\"contact_info_section\">
+							<div class=\"contact_info_title\">Dúvidas</div>
+							<ul>
+								<li>Telefone: <span>" . $row['telefone'] . "</span></li>
+								<li>Email: <span>" . $row['email'] . "</span></li>
+							</ul>
+						</div>
+						<div class=\"contact_info_section\">
+							<div class=\"contact_info_title\">Informação</div>
+							<ul>
+								<li>Telefone: <span>" . $row['telefone'] . "</span></li>
+								<li>Email: <span>" . $row['email'] . "</span></li>
+							</ul>
+						</div>
+						<div class=\"contact_info_section\">
+							<div class=\"contact_info_title\">Informação</div>
+							<ul>
+							    <li>Telefone: <span>" . $row['telefone'] . "</span></li>
+								<li>Email: <span>" . $row['email'] . "</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>";
+                    }
+                }
+                ?>
+
             </div>
             <div class="row map_row">
                 <div class="col">
@@ -359,7 +394,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- Google Map -->
                     <div class="map">
                         <div id="google_map" class="google_map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d371.8115263528615!2d-6.767889674479954!3d41.79615599914968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a4a1ee035460b%3A0x72fde1e40776b97b!2sESTIG!5e0!3m2!1spt-PT!2spt!4v1580469842239!5m2!1spt-PT!2spt" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            <div class="map_container">
+                                <div id="map"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -378,8 +415,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col">
                     <div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
                         <div class="footer_logo"><a href="#">Sublime.</a></div>
-                        <div class="copyright ml-auto mr-auto"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <div class="copyright ml-auto mr-auto">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
                         <div class="footer_social ml-lg-auto">
                             <ul>
@@ -405,7 +446,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="plugins/greensock/animation.gsap.min.js"></script>
 <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA_PCCmf11GxuUoa_dZNGwreiXcP4_OLqo"></script>
 <script src="js/contact.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: welcome.php");
     exit;
 }
@@ -16,26 +16,26 @@ $utilizador = $password = "";
 $utilizador_err = $password_err = "";
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    if (empty(trim($_POST["username"]))) {
         $utilizador_err = "Introduza o nome de utilizador.";
-    } else{
+    } else {
         $utilizador = trim($_POST["username"]);
     }
 
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if (empty(trim($_POST["password"]))) {
         $password_err = "Introduza a password.";
-    } else{
+    } else {
         $password = trim($_POST["password"]);
     }
 
     // Validate credentials
-    if(empty($utilizador_err) && empty($password_err)) {
+    if (empty($utilizador_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT id, utilizador, password FROM utilizadores WHERE utilizador = ?";
+        $sql = "SELECT id, utilizador, password FROM utilizador WHERE utilizador = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -76,12 +76,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             } else {
                 echo "Ocorreu um erro. Por favor tente mais tarde.";
-                echo mysqli_error();// }
+                echo mysqli_error();
             }
-        }
             // Close statement
             mysqli_stmt_close($stmt);
         }
+
+    }
 
     // Close connection
     mysqli_close($link);
@@ -102,8 +103,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo"><a href="/exercicio15/index.php"><img height="40%" src="images/logo.jpg"
-                                                                                width="20%" alt=""></a></div>
+                        <div class="logo"><a href="/index.php"><img height="40%" src="images/logo.jpg"
+                                                                    width="20%" alt=""></a></div>
                     </div>
                 </div>
             </div>

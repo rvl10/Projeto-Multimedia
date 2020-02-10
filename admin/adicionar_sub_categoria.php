@@ -11,7 +11,7 @@
 <body>
 <?php
 // Include config file
-require_once "ligacao_bd.php";
+require_once "../ligacao_bd.php";
 
 // Define variables and initialize with empty values
 $sub_categoria ="";
@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($sub_categoria_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO sub_categoria (sub_categoria) VALUES (?)";
+        $sql = "INSERT INTO sub_categoria (nome) VALUES (?)";
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_sub_categoria);
