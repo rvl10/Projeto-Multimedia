@@ -1,28 +1,24 @@
 <?php
-/*
-Author: Javed Ur Rehman
-Website: https://www.allphptricks.com
-*/
 session_start();
 include('ligacao_bd.php');
 $status = "";
-if (isset($_POST['code']) && $_POST['code']!=""){
-$code = $_POST['code'];
+if (isset($_POST['codigo']) && $_POST['codigo'] != "") {
+    $code = $_POST['codigo'];
     $result = mysqli_query($link, "SELECT * FROM `produto` WHERE `codigo`='$code'");
     $row = mysqli_fetch_assoc($result);
-$name = $row['name'];
-$code = $row['code'];
-$price = $row['price'];
-$image = $row['image'];
+    $name = $row['nome'];
+    $code = $row['codigo'];
+    $price = $row['preco'];
+    $image = $row['image'];
 
-$cartArray = array(
-	$code=>array(
-	'name'=>$name,
-	'code'=>$code,
-	'price'=>$price,
-	'quantity'=>1,
-	'image'=>$image)
-);
+    $cartArray = array(
+        $code => array(
+            'nome' => $name,
+            'codigo' => $code,
+            'preco' => $price,
+            'quantity' => 1,
+            'image' => $image)
+    );
 
 if(empty($_SESSION["shopping_cart"])) {
 	$_SESSION["shopping_cart"] = $cartArray;
@@ -217,8 +213,6 @@ if(empty($_SESSION["shopping_cart"])) {
 
 <div style="width:700px; margin:50 auto;">
 
-<h2>Demo Simple Shopping Cart using PHP and MySQL</h2>   
-
 <?php
 if(!empty($_SESSION["shopping_cart"])) {
 $cart_count = count(array_keys($_SESSION["shopping_cart"]));
@@ -231,7 +225,7 @@ $result = mysqli_query($link, 'SELECT * FROM `produto`where Categoria_id = 1');
 while($row = mysqli_fetch_assoc($result)){
 		echo "<div class='product_wrapper' style='color: black'>
 			  <form method='post' action=''>
-			  <input type='hidden' name='code' value=" . $row['codigo'] . " />
+			  <input type='hidden' name='codigo' value=" . $row['codigo'] . " />
 			  <div class='image'><img src='" . $row['image'] . "' /></div>
 			  <div class='name'>" . $row['nome'] . "</div>
 		   	  <div class='price' style='color: black'>€" . $row['preco'] . "</div>

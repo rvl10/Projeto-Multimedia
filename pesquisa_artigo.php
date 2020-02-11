@@ -22,7 +22,7 @@
         // pesquisar termo inserido
         $termo_pesquisa = '%' . $_POST['termo_pesquisa'] . '%';
         $sql_artigo = "SELECT * FROM produto WHERE nome LIKE '$termo_pesquisa'";
-        $consulta = mysqli_query($sql_artigo);
+        $consulta = mysqli_query($link, $sql_artigo);
         $resultado = mysqli_num_rows($consulta);
 
         if ($resultado != 0) {
@@ -31,14 +31,14 @@
 	// apresenta artigos disponiveis
 	while ($mostrar = mysqli_fetch_array($consulta)) {
 	echo "<table width='800 px' border='1' align='center'>";
-		echo "<tr>";
-		echo "<td align='center' width='100' height='100' valign='middle'>
-		<img src='$pasta_imagens".$mostrar['nome']."' border='0'></td>";
-		echo "<td><align='center'>".$mostrar['codigo']."</a></br>EUR ".$mostrar['preco']." 
-		</br>".$mostrar['descricao']."</td>";
-		echo "<td width='200' align='left' valign='middle'></br><a href='comprar.php?
-		id_artigo=".$mostrar['id']."'><img border=0 src='icones/carrinho.jpg'></td></tr>";
-		echo "</table>";
+        echo "<tr>";
+        echo "<td align='center' width='100' height='100' valign='middle'>
+		<img src='" . $mostrar['image'] . "' border='0'></td>";
+        echo "<td><align='center'>" . $mostrar['codigo'] . "</a></br>EUR " . $mostrar['preco'] . " 
+		</br>" . $mostrar['descricao'] . "</td>";
+        echo "<td width='200' align='left' valign='middle'></br><a href='comprar.php?
+		id_artigo=" . $mostrar['id'] . "'><img border=0 src='images/shopping.svg'></td></tr>";
+        echo "</table>";
 	}}		
 	else {
 	echo "<table width='800 px' border='1' align='center'>";

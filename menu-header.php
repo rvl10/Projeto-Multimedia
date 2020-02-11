@@ -3,16 +3,12 @@ require_once 'funcoes/categorias.php';
 $pdoConnection = require 'ligacao_bd.php';
 $categorias = getCategorias($pdoConnection);
 
-/*
-Author: Javed Ur Rehman
-Website: https://www.allphptricks.com
-*/
 session_start();
 $status = "";
 if (isset($_POST['action']) && $_POST['action'] == "remove") {
     if (!empty($_SESSION["shopping_cart"])) {
         foreach ($_SESSION["shopping_cart"] as $key => $value) {
-            if ($_POST["code"] == $key) {
+            if ($_POST["codigo"] == $key) {
                 unset($_SESSION["shopping_cart"][$key]);
                 $status = "<div class='box' style='color:red;'>
 		Produto foi removido do carrinho!</div>";
@@ -25,7 +21,7 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
 
 if (isset($_POST['action']) && $_POST['action'] == "change") {
     foreach ($_SESSION["shopping_cart"] as &$value) {
-        if ($value['code'] === $_POST["code"]) {
+        if ($value['codigo'] === $_POST["codigo"]) {
             $value['quantity'] = $_POST["quantity"];
             break; // Stop the loop after we've found the product
         }

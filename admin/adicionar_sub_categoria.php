@@ -14,15 +14,37 @@
 require_once "../ligacao_bd.php";
 
 // Define variables and initialize with empty values
-$sub_categoria ="";
-$sub_categoria_err ="";
+$sub_categoria = "";
+$sub_categoria_err = "";
+
+// inicia sessao
+session_start();
+
+// verifica se o utilizador ja realizou o acesso
+if (!isset($_SESSION['loggedin'])) {
+    header("location: ../login.php");
+} else {
+// verifica nivel de utilizador e atribui variavel
+    if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+        $iduser = $_SESSION['id'];
+        require_once "../ligacao_bd.php";
+        $sql = "select Tipo_Utilizador_id  from utilizador where id = $iduser and Tipo_Utilizador_id = 3";
+        $result = $link->query($sql);
+        if ($result->num_rows == 1) {
+            //ok
+        } else {
+            header("location: ../login.php");
+        }
+    }
+
+}
+
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(empty(trim($_POST["username"]))){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_POST["username"]))) {
         $sub_categoria_err = "Introduza uma Subcategoria.";
-    }
-    else{
+    } else {
         $sub_categoria = trim($_POST["username"]);
     }
     // Check input errors before inserting in database

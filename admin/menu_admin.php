@@ -29,7 +29,7 @@
         if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             $iduser = $_SESSION['id'];
             require_once "../ligacao_bd.php";
-            $sql = "select Tipo_Utilizador_id  from utilizador where id = $iduser and Tipo_Utilizador_id = 3";
+            $sql = "select Tipo_Utilizador_id  from utilizador where id = $iduser and Tipo_Utilizador_id = 1";
             $result = $link->query($sql);
             if ($result->num_rows == 1) {
                 //ok
@@ -39,7 +39,7 @@
     <a href=\"remover_sub_categoria.php\" class=\"btn btn-danger\">Remover Sub Categoria</a>
     <a href=\"sair.php\" class=\"btn btn-danger\">Sair</a>";
             } else {
-                header("location: welcome.php");
+                header("location: ../welcome.php");
                 echo "<tr>Nao esta autorizado a aceder a esta pagina! </tr>";
                 echo "<tr><a href='../login.php'>Clique para logar!</a></tr>";
             }
