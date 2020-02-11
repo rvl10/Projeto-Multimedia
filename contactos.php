@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                header("location: ../computador.php");
+                header("location: index.php");
             } else {
                 echo "Ocorreu um erro. Por favor tente mais tarde.";
                 echo mysqli_error($link);//
@@ -329,10 +329,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                value="<?php echo $email; ?>">
                                         <span class="help-block"><?php echo $email_err; ?></span>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" value="Submeter">
-                                        <input type="reset" class="btn btn-default" value="Cancelar">
-                                    </div>
                                     <button class="button contact_button"><span>Enviar Mensagem</span></button>
                             </form>
                         </div>
@@ -340,19 +336,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <?php
                 //TODO: enviar email
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "projeto_multimedia";
-                // cria a ligação
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // testa a ligação
-                if ($conn->connect_error) {
-                    die("Erro de ligação à base de dados:" . $conn->connect_error);
-                }
+                //                include('ligacao_bd.php');
                 $sql = "select telefone, email  from infoempresa";
 
-                $result = $conn->query($sql);
+                $result = $link->query($sql);
                 if ($result->num_rows > 0) {
 
                     while ($row = $result->fetch_assoc()) {
@@ -378,11 +365,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class=\"contact_info_title\">Informação</div>
 							<ul>
 							    <li>Telefone: <span>" . $row['telefone'] . "</span></li>
-								<li>Email: <span>" . $row['email'] . "</span></li>
+								<li>Email: <span>" . $row['email'] . '</span></li>
 							</ul>
 						</div>
 					</div>
-				</div>";
+				</div>';
                     }
                 }
                 ?>

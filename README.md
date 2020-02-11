@@ -24,10 +24,10 @@ Para a submissão do projeto incluir:
 - Modelo ER da base de dados (Modelo do Workbench)
 - Dump da base de dados em um ficheiro único .sql (exportar base de dados) 
 - Relatório sintético do projeto (máximo 10 páginas) com as seguintes seções: 
-     * Resumo 
-     * Objetivos 
-     * Trabalho Desenvolvido 
-     * Resultados e Conclusões 
+     * Resumo 1 pag ok
+     * Objetivos 1 pag 
+     * Trabalho Desenvolvido  5 pag
+     * Resultados e Conclusões 2 pag
 
 Deverá ser dado acesso ao repositório no GitHub a: palvesipb
 

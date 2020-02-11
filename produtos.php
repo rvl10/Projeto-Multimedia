@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="wrapper">
     <h2>Adicionar produto</h2>
     <p>Por favor preencha os seguintes campos para adicionar um produto.</p>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form action="produtos.php" method="post">
 
         <!--  nome -->
         <div class="form-group <?php echo (!empty($nome_err)) ? 'has-error' : ''; ?>">

@@ -8,8 +8,8 @@ include('ligacao_bd.php');
 $status = "";
 if (isset($_POST['code']) && $_POST['code']!=""){
 $code = $_POST['code'];
-$result = mysqli_query($con,"SELECT * FROM `products` WHERE `code`='$code'");
-$row = mysqli_fetch_assoc($result);
+    $result = mysqli_query($link, "SELECT * FROM `produto` WHERE `codigo`='$code'");
+    $row = mysqli_fetch_assoc($result);
 $name = $row['name'];
 $code = $row['code'];
 $price = $row['price'];
@@ -227,19 +227,19 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
 <?php
 }
 
-$result = mysqli_query($con,"SELECT * FROM `products`where tipo = 'computador'");
+$result = mysqli_query($link, 'SELECT * FROM `produto`where Categoria_id = 1');
 while($row = mysqli_fetch_assoc($result)){
 		echo "<div class='product_wrapper' style='color: black'>
 			  <form method='post' action=''>
-			  <input type='hidden' name='code' value=".$row['code']." />
-			  <div class='image'><img src='".$row['image']."' /></div>
-			  <div class='name'>".$row['name']."</div>
-		   	  <div class='price' style='color: black'>€".$row['price']."</div>
+			  <input type='hidden' name='code' value=" . $row['codigo'] . " />
+			  <div class='image'><img src='" . $row['image'] . "' /></div>
+			  <div class='name'>" . $row['nome'] . "</div>
+		   	  <div class='price' style='color: black'>€" . $row['preco'] . "</div>
 			  <button type='submit' class=\"btn btn-primary\">Adicionar ao Carrinho</button>
 			  </form>
 		   	  </div>";
         }
-mysqli_close($con);
+mysqli_close($link);
 ?>
 
 <div style="clear:both;"></div>

@@ -16,33 +16,39 @@
     <h1> Painel de administrador</h1>
 </div>
 <p>
-    <a href="adicionar_categoria.php" class="btn btn-primary">Adicionar Categoria</a>
-    <a href="adicionar_sub_categoria.php" class="btn btn-primary">Adicionar Sub Categoria</a>
-    <a href="remover_categoria.php" class="btn btn-danger">Remover Categoria</a>
-    <a href="sair.php" class="btn btn-danger">Sair</a>
+    <?php
+    // inicia sessao
+    session_start();
+
+    // verifica se o utilizador ja realizou o acesso
+    if (!isset($_SESSION['loggedin'])) {
+        echo "<tr>Não esta logado faça login! </tr>";
+        echo "<tr><a href='../login.php'>Clique para logar!</a></tr>";
+    } else {
+// verifica nivel de utilizador e atribui variavel
+        if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+            $iduser = $_SESSION['id'];
+            require_once "../ligacao_bd.php";
+            $sql = "select Tipo_Utilizador_id  from utilizador where id = $iduser and Tipo_Utilizador_id = 3";
+            $result = $link->query($sql);
+            if ($result->num_rows == 1) {
+                //ok
+                print "  <a href=\"adicionar_categoria.php\" class=\"btn btn-primary\">Adicionar Categoria</a>
+    <a href=\"adicionar_sub_categoria.php\" class=\"btn btn-primary\">Adicionar Sub Categoria</a>
+    <a href=\"remover_categoria.php\" class=\"btn btn-danger\">Remover Categoria</a>
+    <a href=\"remover_sub_categoria.php\" class=\"btn btn-danger\">Remover Sub Categoria</a>
+    <a href=\"sair.php\" class=\"btn btn-danger\">Sair</a>";
+            } else {
+                header("location: welcome.php");
+                echo "<tr>Nao esta autorizado a aceder a esta pagina! </tr>";
+                echo "<tr><a href='../login.php'>Clique para logar!</a></tr>";
+            }
+        }
+
+    }
+    ?>
 
 </p>
 </body>
 </html>
 
-<?php
-// inicia sessao
-session_start();
-
-// verifica se o utilizador ja realizou o acesso
-if (isset($_SESSION['id_utilizador'])) {
-    echo "<tr>Nao esta autorizado a aceder a esta pagina! </tr>";
-    echo "<tr><a href='../index.php'>Clique para voltar a pagina inicial!</a></tr>";
-} else {
-// verifica nivel de utilizador e atribui variavel
-    if (isset($_SESSION['nivel_utilizador'])) {
-        $nivel = $_SESSION['nivel_utilizador'];
-    }
-
-    ?>
-
-<?php }
-?>
-
-</body>
-</html>
