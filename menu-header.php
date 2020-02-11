@@ -164,30 +164,28 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
             </div>
             <ul class="page_menu_nav menu_mm">
                 <li class="page_menu_item has-children menu_mm">
-                    <a href="index.html">Home<i class="fa fa-angle-down"></i></a>
+                    <a href="index.php">Home<i class="fa fa-angle-down"></i></a>
                     <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Categories<i
-                                        class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="product.html">Product<i
-                                        class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="cart.html">Cart<i class="fa fa-angle-down"></i></a>
+
+                        <?php foreach ($categorias
+
+                        as $categoria) : ?>
+                        <li class="page_menu_item menu_mm"><a href="#">
+                                <!--                  TODO: inserir ancora                          -->
+                                <?php echo $categoria['nome'] ?>
+
+
+                                <?php endforeach; ?>
+                                <i class="fa fa-angle-down"></i></a></li>
+
+                        <!--                        <li class="page_menu_item menu_mm"><a href="categories.html">Categories<i-->
+                        <!--                                        class="fa fa-angle-down"></i></a></li>-->
+                        <!--                        <li class="page_menu_item menu_mm"><a href="product.html">Product<i-->
+                        <!--                                        class="fa fa-angle-down"></i></a></li>-->
+                        <li class="page_menu_item menu_mm"><a href="cart.php">Cart<i class="fa fa-angle-down"></i></a>
                         </li>
-                        <li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i
-                                        class="fa fa-angle-down"></i></a></li>
+
                         <li class="page_menu_item menu_mm"><a href="contactos.php">Contact<i
-                                        class="fa fa-angle-down"></i></a></li>
-                    </ul>
-                </li>
-                <li class="page_menu_item has-children menu_mm">
-                    <a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
-                    <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-                                        class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-                                        class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-                                        class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i
                                         class="fa fa-angle-down"></i></a></li>
                     </ul>
                 </li>
